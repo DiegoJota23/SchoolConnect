@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SchoolConnect</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>SchoolConnect</h1>
+    <div class="tabs">
+      <button id="tab-login" class="active">Iniciar Sesión</button>
+      <button id="tab-signup">Crear una cuenta</button>
+    </div>
+    <form id="form-login" class="form active">
+      <div class="field">
+        <label for="login-email">Correo:</label>
+        <input type="email" id="login-email" required>
+      </div>
+      <div class="field password-field">
+        <label for="login-password">Contraseña:</label>
+        <input type="password" id="login-password" required>
+        <span class="toggle-password" id="toggle-login-password">👁️</span>
+      </div>
+      <button type="submit">Iniciar Sesión</button>
+    </form>
+    <form id="form-signup" class="form">
+      <div class="field">
+        <label for="signup-email">Correo:</label>
+        <input type="email" id="signup-email" required>
+      </div>
+      <div class="field password-field">
+        <label for="signup-password">Contraseña:</label>
+        <input type="password" id="signup-password" required>
+        <span class="toggle-password" id="toggle-signup-password">👁️</span>
+      </div>
+      <div class="field password-field">
+        <label for="signup-password-confirm">Confirmar Contraseña:</label>
+        <input type="password" id="signup-password-confirm" required>
+        <span class="toggle-password" id="toggle-signup-password-confirm">👁️</span>
+      </div>
+      <button type="submit">Crear Cuenta</button>
+    </form>
+    <p id="message" class="message"></p>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
