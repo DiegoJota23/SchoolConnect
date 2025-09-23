@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SchoolConnect - Registro</title>
+    <link rel="stylesheet" href="registro.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="logo">
+            <img src="School Connect.png" alt="Logo SchoolConnect">
+            <h1>SchoolConnect</h1>
+        </div>
+    </header>
+
+    <!-- Contenedor Registro -->
+    <section class="register-container">
+        <div class="register-box">
+            <img src="School Connect.png" alt="Logo">
+            <h2>Crear Cuenta</h2>
+            <form id="registroForm" action="#" method="post">
+                <input type="text" id="nombre" placeholder="Nombre completo" required>
+                
+                <!-- Correo -->
+                <input type="email" id="correo" placeholder="Correo institucional" required>
+                <small id="correoError" class="error-msg"></small>
+                
+                <!-- Contraseña -->
+                <input type="password" id="password" placeholder="Contraseña" required>
+                <small id="passwordError" class="error-msg"></small>
+                
+                <input type="password" id="confirmPassword" placeholder="Confirmar contraseña" required>
+                <small id="confirmError" class="error-msg"></small>
+
+                <!-- Selector de rol -->
+                <div class="role-selector">
+                    <label><input type="radio" name="rol" value="estudiante" required> Estudiante</label>
+                    <label><input type="radio" name="rol" value="docente" required> Docente</label>
+                </div>
+
+                <button type="submit">Registrarse</button>
+            </form>
+            <p>¿Ya tienes cuenta? <a href="login.html">Inicia sesión aquí</a></p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+    <p>&copy; 2025 <span>SchoolConnect</span></p>
+    <p>Todos los derechos reservados</p>
+</footer>
+
+
+    <!-- Validaciones -->
+    <script>
+        const form = document.getElementById("registroForm");
+        const correo = document.getElementById("correo");
+        const password = document.getElementById("password");
+        const confirmPassword = document.getElementById("confirmPassword");
+
+        const correoError = document.getElementById("correoError");
+        const passwordError = document.getElementById("passwordError");
+        const confirmError = document.getElementById("confirmError");
+
+        function validarCorreo() {
+            if (!correo.value.endsWith("@cea.edu.co")) {
+                correoError.textContent = "El correo debe ser institucional (@cea.edu.co)";
+                correoError.style.display = "block";
+                correo.classList.add("error");
+                return false;
+            } else {
+                correoError.textContent = "";
+                correoError.style.display = "none";
+                correo.classList.remove("error");
+                return true;
+            }
+        }
+
+        function validarPassword() {
+            const regexPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
+            if (!regexPassword.test(password.value)) {
+                passwordError.textContent = "La contraseña debe tener 8 caracteres, incluir mayúscula, minúscula y número.";
+                passwordError.style.display = "block";
+                password.classList.add("error");
+                return false;
+            } else {
+                passwordError.textContent = "";
+                passwordError.style.display = "none";
+                password.classList.remove("error");
+                return true;
+            }
+        }
+
+        function validarConfirmPassword() {
+            if (password.value !== confirmPassword.value) {
+                confirmError.textContent = "Las contraseñas no coinciden.";
+                confirmError.style.display = "block";
+                confirmPassword.classList.add("error");
+                return false;
+            } else {
+                confirmError.textContent = "";
+                confirmError.style.display = "none";
+                confirmPassword.classList.remove("error");
+                return true;
+            }
+        }
+
+        // Validaciones en tiempo real
+        correo.addEventListener("input", validarCorreo);
+        password.addEventListener("input", validarPassword);
+        confirmPassword.addEventListener("input", validarConfirmPassword);
+
+        // Validación al enviar
+        form.addEventListener("submit", (e) => {
+            let valid = true;
+
+            if (!validarCorreo()) valid = false;
+            if (!validarPassword()) valid = false;
+            if (!validarConfirmPassword()) valid = false;
+
+            if (!valid) {
+                e.preventDefault(); // Detener envío si hay errores
+            }
+        });
+    </script>
+</body>
+</html>
