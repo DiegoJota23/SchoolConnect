@@ -1,0 +1,180 @@
+/* ===== SchoolConnect - login.css actualizado ===== */
+:root {
+  --navy: #0b2240;
+  --gold: #d4a020;
+  --muted: #6b7280;
+  --white: #ffffff;
+  --gray-bg: #f9f9f9;
+  --border: #e5e7eb;
+  --shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  --radius: 10px;
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+body {
+  margin: 0;
+  background-color: var(--gray-bg);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Header */
+header {
+  background-color: var(--navy);
+  display: flex;
+  align-items: center;
+  padding: 10px 40px;
+  color: var(--gold);
+}
+
+header img {
+  width: 35px;
+  height: 35px;
+  margin-right: 10px;
+}
+
+header h1 {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+/* Contenedor principal */
+main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--gray-bg);
+}
+
+/* Marco del formulario */
+.login-container {
+  background-color: var(--white);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  width: 380px;
+  padding: 40px 35px;
+  text-align: center;
+  border: 1px solid var(--border);
+}
+
+.login-container img {
+  width: 60px;
+  height: 60px;
+  display: block;
+  margin: 0 auto 10px auto;
+}
+
+.login-container h2 {
+  margin-bottom: 20px;
+  font-size: 18px;
+  color: var(--navy);
+  font-weight: 700;
+}
+
+/* Campos del formulario */
+.form-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--gold);
+  box-shadow: 0 0 0 2px rgba(212, 160, 32, 0.2);
+}
+
+/* Radios */
+.radio-group {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin: 10px 0 20px 0;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+/* Botón */
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: var(--gold);
+  color: var(--navy);
+  border: none;
+  border-radius: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background-color: #e6b23a;
+}
+
+/* Enlaces */
+.links {
+  margin-top: 15px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.links a {
+  color: var(--navy);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.links a:hover {
+  text-decoration: underline;
+}
+
+/* Mensaje de error */
+#error-message {
+  display: none;
+  color: #b91c1c;
+  background: #fff4f4;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid #ffd7d9;
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+/* Footer */
+footer {
+  background-color: var(--navy);
+  color: white;
+  text-align: center;
+  padding: 15px;
+  font-size: 13px;
+  margin-top: auto;
+  border-top: 3px solid var(--gold);
+}
+
+/* Responsivo */
+@media (max-width: 480px) {
+  .login-container {
+    width: 90%;
+    padding: 30px 20px;
+  }
+  header {
+    padding: 10px 20px;
+  }
+}
